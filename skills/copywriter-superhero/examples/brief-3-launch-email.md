@@ -7,6 +7,14 @@ Gap log entry 3 covers what broke here.
 
 # Waitlist email — beta opens — 3 angles
 
+### Triage
+- **Regime:** short-form marketing
+- **Deliverable:** launch email, 3 subject lines and 3 bodies
+- **Awareness:** product-aware — they signed up 4 months ago and know the offer
+- **Traffic:** warm
+- **Framework:** 4Ps — promise, picture, proof, push. They need a reason to act now
+- **Voice source:** voice-codex-neue-academy.json
+
 ### Brief
 - **Role framing:** studio lead writing to people who signed up 4 months ago
 - **ICP:** waitlist member who signed up in March, has not heard anything since,

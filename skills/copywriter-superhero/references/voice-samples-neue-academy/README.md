@@ -19,11 +19,11 @@ input to the voice codex. Never write samples yourself — paste real published 
 
 ```bash
 python3 skills/copywriter-superhero/scripts/extract_voice_codex.py \
-  --samples skills/copywriter-superhero/references/voice-samples \
-  --out skills/copywriter-superhero/references/voice-codex.json
+  --samples skills/copywriter-superhero/references/voice-samples-neue-academy \
+  --out skills/copywriter-superhero/references/voice-codex-neue-academy.json
 ```
 
-Commit the regenerated `voice-codex.json` alongside the new sample so every agent
+Commit the regenerated `voice-codex-neue-academy.json` alongside the new sample so every agent
 session reads the same numbers.
 
 ## Current corpus

@@ -161,7 +161,7 @@ still recognise AI copy by these shapes.
 
 Words that look like buzzwords but appear repeatedly in the brand's real published
 copy. Flagging these makes the agent fight the brand voice. The extractor writes
-this list into `voice-codex.json` automatically from corpus frequency — this is a
+this list into `voice-codex-<brand>.json` automatically from corpus frequency — this is a
 copy for human readers only:
 
 `world-class`, `studio-grade`, `industry-grade`, `pipeline`, `pipelines`, `ecosystem`,

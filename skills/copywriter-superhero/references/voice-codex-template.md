@@ -22,7 +22,8 @@ python3 scripts/extract_voice_codex.py \
 
 ```bash
 cat references/voice-samples-<brand>/*.md \
-  | python3 scripts/score_copy.py - --mode single --codex references/voice-codex-<brand>.json
+  | python3 scripts/score_copy.py - --regime short-form --variants 1 \
+      --codex references/voice-codex-<brand>.json
 ```
 
 If the brand's own published copy fails, the corpus is too small or too mixed. Add

@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
-"""Measure a brand's real published copy and emit voice-codex.json.
+"""Measure a brand's real published copy and emit a voice codex.
 
 Every number the linter enforces is calibrated from this corpus, so the quality
 bar is "sounds like this brand" rather than "sounds like generic good copy".
 
 Usage:
-    python3 extract_voice_codex.py --samples <dir> --out <voice-codex.json>
+    python3 extract_voice_codex.py --samples <dir> --out voice-codex-<brand>.json
     python3 extract_voice_codex.py --samples <dir> --print   # human summary only
 
 Standard library only. No install step.
@@ -343,7 +343,7 @@ def print_summary(codex: Dict[str, object]) -> None:
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--samples", required=True, help="directory of verbatim copy samples")
-    parser.add_argument("--out", help="path to write voice-codex.json")
+    parser.add_argument("--out", help="path to write voice-codex-<brand>.json")
     parser.add_argument("--table", help="path to buzzword-replacement-table.md")
     parser.add_argument("--print", dest="do_print", action="store_true",
                         help="print the human summary")

@@ -8,7 +8,10 @@ alwaysApply: true
 Three skills live in `skills/`. Read the relevant `SKILL.md` in full before working in
 its area.
 
-- **Copy of any kind** (headlines, landing sections, emails, ads, social, taglines) →
+- **Any copy at all** — UX microcopy (buttons, errors, empty states), marketing copy
+  (headlines, ads, emails, social), long-form persuasion (sales pages, VSL scripts),
+  editorial work (books, chapters, scripts, essays, newsletters), and functional documents
+  (terms, privacy policies, help articles, release notes) →
   [copywriter-superhero](mdc:skills/copywriter-superhero/SKILL.md)
 - **Landing page structure, CTA hierarchy, layout, motion, accessibility, deploy** →
   [conversion-architect](mdc:skills/conversion-architect/SKILL.md)
@@ -18,12 +21,21 @@ its area.
 ## Gates that must pass
 
 ```bash
-python3 skills/copywriter-superhero/scripts/score_copy.py draft.md   # exit 0 required
+# --regime: microcopy | short-form | long-form | editorial | functional
+python3 skills/copywriter-superhero/scripts/score_copy.py draft.md --regime short-form
 python3 skills/conversion-architect/scripts/audit_page.py page.html  # exit 0 required
 ./scripts/selftest.sh                                               # after any change
 ```
 
 Never hand copy to the user, and never deploy a page, before the matching gate exits 0.
+
+## Triage first
+
+Before drafting any copy, state the regime, the reader's awareness level (unaware,
+problem-aware, solution-aware, product-aware, most aware), and the traffic temperature.
+Then open that regime's rulebook in `skills/copywriter-superhero/references/`. Each rulebook
+contradicts the others on purpose — routing by habit is the failure this repo exists to
+stop.
 
 ## Boundaries
 
@@ -33,10 +45,11 @@ skill's job.
 
 ## Voice
 
-Load `skills/copywriter-superhero/references/voice-codex.json` before writing copy. It is
-measured from real published samples. Never invent a brand voice from adjectives, and
-never hand-edit the codex — it is a build artefact, regenerated from
-`references/voice-samples/`.
+Brand voice is **optional and applied last**. With no `--codex` the linter uses
+plain-language defaults, which is a correct result, not a degraded one. When a brand supplies
+real published samples, extract a codex from them and pass it with `--codex`. Never invent a
+voice from adjectives, never write the samples yourself, and never hand-edit a codex — it is
+a build artefact regenerated from `references/voice-samples-<brand>/`.
 
 ## Secrets
 

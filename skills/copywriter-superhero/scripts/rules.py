@@ -152,6 +152,31 @@ def load_rules(path: Optional[str] = None) -> Rules:
     return Rules(words=words, constructions=constructions, protected=protected)
 
 
+def load_many(paths: List[Optional[str]]) -> Rules:
+    """Merge several rule tables into one rule set, first occurrence winning.
+
+    The functional regime loads the plain-language table on top of the buzzword table,
+    because legal copy has to survive both.
+    """
+    words: List[Tuple[str, str]] = []
+    constructions: List[Tuple[str, str, str]] = []
+    protected: List[str] = []
+    seen_words = set()
+    seen_patterns = set()
+    for path in paths:
+        loaded = load_rules(path)
+        for term, fix in loaded.words:
+            if term.lower() not in seen_words:
+                seen_words.add(term.lower())
+                words.append((term, fix))
+        for pattern, why, fix in loaded.constructions:
+            if pattern not in seen_patterns:
+                seen_patterns.add(pattern)
+                constructions.append((pattern, why, fix))
+        protected.extend(loaded.protected)
+    return Rules(words=words, constructions=constructions, protected=protected)
+
+
 def summary(rules: Rules) -> Dict[str, int]:
     return {
         "banned_words": len(rules.words),

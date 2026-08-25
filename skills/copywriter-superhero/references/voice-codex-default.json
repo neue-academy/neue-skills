@@ -1,0 +1,38 @@
+{
+  "_comment": [
+    "Brand-agnostic fallback. Used whenever no --codex is supplied, so the linter works",
+    "with zero brand input and the skill is never blocked on onboarding a voice.",
+    "",
+    "This file is hand-written, not extracted. It carries no brand voice on purpose:",
+    "total_words is 0, which tells the linter to keep the regime profile's own gates",
+    "rather than overriding them with measured brand numbers.",
+    "",
+    "To get a real voice, put 3-5 verbatim published samples in",
+    "references/voice-samples-<brand>/ and run extract_voice_codex.py, then pass the",
+    "result with --codex. See voice-codex-template.md."
+  ],
+  "codex_version": 1,
+  "generated_from": {
+    "sample_dir": null,
+    "files": [],
+    "total_words": 0,
+    "total_sentences": 0
+  },
+  "tone_descriptors": [
+    "plain",
+    "direct",
+    "clarity-first (NN/g: clarity, then concision, then character)"
+  ],
+  "metrics": {
+    "exclamation_per_1000": 0.0
+  },
+  "jargon_tolerance": "low — plain nouns unless the brief establishes a technical audience",
+  "metaphor_frequency": "rare — prefer literal description until a voice codex says otherwise",
+  "capitalization": "sentence case headlines",
+  "signature_phrases": [],
+  "distinctive_terms": [],
+  "protected_terms": [],
+  "soft_banned_phrases": [],
+  "banned_phrases": [],
+  "gates": {}
+}

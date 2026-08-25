@@ -5,25 +5,31 @@ before starting work in its area — the rules are enforced by scripts, not by t
 
 | Task | Skill |
 |---|---|
-| Any marketing copy: headlines, landing sections, emails, ads, social, taglines | `skills/copywriter-superhero/SKILL.md` |
+| Any copy at all: UX microcopy, marketing copy, sales letters, books, scripts, newsletters, terms, help articles | `skills/copywriter-superhero/SKILL.md` |
 | Landing page structure, CTA hierarchy, layout, motion, accessibility, deploy | `skills/conversion-architect/SKILL.md` |
 | Exporting a page spec into deployable artefacts | `skills/json-exporter/SKILL.md` |
 
 ## Non-negotiables
 
-1. **Never hand over copy that has not passed the linter.**
-   `python3 skills/copywriter-superhero/scripts/score_copy.py draft.md` must exit 0.
-2. **Never deploy a page that has not passed the audit.**
+1. **Triage before drafting.** State the regime — microcopy, short-form, long-form,
+   editorial, or functional — plus the reader's awareness level and the traffic
+   temperature. Then read that regime's rulebook in
+   `skills/copywriter-superhero/references/`. Each one contradicts the others on purpose.
+2. **Never hand over copy that has not passed the linter.**
+   `python3 skills/copywriter-superhero/scripts/score_copy.py draft.md --regime <regime>`
+   must exit 0.
+3. **Never deploy a page that has not passed the audit.**
    `python3 skills/conversion-architect/scripts/audit_page.py page.html` must exit 0.
-3. **Load the voice codex before writing copy.** Never invent a brand voice from
-   adjectives: `skills/copywriter-superhero/references/voice-codex.json`.
-4. **Respect the skill boundaries.** Copy is written only by `copywriter-superhero`.
+4. **Brand voice is optional and applied last.** With no `--codex` the linter uses
+   plain-language defaults, which is a correct result. Never invent a voice from adjectives,
+   and never hand-edit a codex — it is regenerated from `references/voice-samples-<brand>/`.
+5. **Respect the skill boundaries.** Copy is written only by `copywriter-superhero`.
    Page structure belongs only to `conversion-architect`. Export belongs only to
    `json-exporter`. Two skills doing the same job is the failure mode this repo exists
    to avoid.
-5. **Fix the copy, not the gate.** If a gate blocks good work, change the input
+6. **Fix the copy, not the gate.** If a gate blocks good work, change the input
    (add a real voice sample, fix the table) and re-run `./scripts/selftest.sh`.
-6. **Never commit a token.** `VERCEL_TOKEN` comes from the environment or `.env.local`,
+7. **Never commit a token.** `VERCEL_TOKEN` comes from the environment or `.env.local`,
    both gitignored.
 
 ## After changing any gate, table, script, or example

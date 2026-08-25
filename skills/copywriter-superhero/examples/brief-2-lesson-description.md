@@ -7,6 +7,14 @@ you almost no room to vary rhythm. Gap log entry 2 covers what broke.
 
 # Lesson description — "Scroll-driven product hero" — 3 angles
 
+### Triage
+- **Regime:** short-form marketing
+- **Deliverable:** in-app catalogue description, 3 angles, ~70 words each
+- **Awareness:** solution-aware — they are already inside the app, browsing for a fix
+- **Traffic:** hot
+- **Framework:** BAB — solution-aware, transformation is the whole pitch
+- **Voice source:** voice-codex-neue-academy.json
+
 ### Brief
 - **Role framing:** the engineer who shipped this hero for a paying client
 - **ICP:** designer inside the app, browsing the catalogue, decides in 8 seconds

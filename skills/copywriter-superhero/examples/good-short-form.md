@@ -1,12 +1,24 @@
 <!--
 PASSING EXAMPLE. Test brief 1 of 3.
-Same brief as bad-output-1.md: launch copy for the Neue Academy founding-member
+Same brief as bad-short-form.md: launch copy for the Neue Academy founding-member
 waitlist. Linter verdict recorded at the bottom of this file.
 Read the two files side by side. The difference is not vocabulary. It is commitment:
 counted claims, named mechanisms, and three arguments instead of one.
+
+Scored with a brand codex, which is the optional path:
+  score_copy.py good-short-form.md --regime short-form \
+    --codex ../references/voice-codex-neue-academy.json
 -->
 
 # Founding-member waitlist — 3 angles
+
+### Triage
+- **Regime:** short-form marketing
+- **Deliverable:** waitlist hero, 3 angles, 90 words each
+- **Awareness:** problem-aware — they lose days to scroll bugs, and have not seen a fix
+- **Traffic:** cold, from social
+- **Framework:** PAS — problem-aware audience, one decision, short format
+- **Voice source:** voice-codex-neue-academy.json
 
 ### Brief
 - **Role framing:** the studio lead who built the 30 projects, talking to one designer

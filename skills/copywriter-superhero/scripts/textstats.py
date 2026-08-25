@@ -59,7 +59,15 @@ BASE_VERB_OPENERS = set(
     """get build ship learn start join master run open read write make take use
     stop skip lock pick see watch download copy paste steal bring keep cut add
     fix send drop hit try test deploy export import study adapt secure claim
-    grab install follow check book reserve save switch swap""".split()
+    grab install follow check book reserve save switch swap
+    create delete choose select share invite upload connect reconnect retry
+    sign confirm rename duplicate move remove archive restore publish upgrade
+    downgrade cancel close edit update refresh request verify view name
+    describe allow enable disable set finish continue find search filter sort
+    tag assign approve reject pay buy order track print scan apply redeem
+    resend replace clear undo repeat contact call email reply forward attach
+    turn link unlink import review accept decline schedule reschedule
+    ask tell show give press tap click swipe pull push begin resume pause""".split()
 )
 
 
@@ -135,6 +143,62 @@ def words_of(text: str) -> List[str]:
 
 def content_words(text: str) -> List[str]:
     return [w.lower() for w in words_of(text) if w.lower() not in STOPWORDS and len(w) > 2]
+
+
+# Buried verbs: a verb turned into a noun. -ity and a bare -al are deliberately excluded
+# because they catch adjectives ("critical") and legal nouns with no verb to restore
+# ("liability"); the -al nominalizations that do matter are listed explicitly instead.
+NOMINALIZATION = re.compile(
+    r"\b(?:\w{4,}(?:tion|sion|ment|ance|ence|ancy|ency)"
+    r"|renewals?|approvals?|removals?|referrals?|dismissals?|proposals?"
+    r"|withdrawals?|disposals?|refusals?|reversals?|deferrals?)s?\b",
+    re.IGNORECASE,
+)
+# Ordinary nouns that end in a nominalizing suffix but bury no verb.
+NOMINALIZATION_ALLOW = {
+    "information", "question", "section", "option", "condition", "position",
+    "solution", "situation", "attention", "portion", "version", "person",
+    "moment", "document", "instrument", "element", "equipment", "environment",
+    "government", "department", "argument", "component", "content", "percent",
+    "experience", "audience", "science", "sentence", "difference", "reference",
+    "evidence", "confidence", "distance", "balance", "chance", "finance",
+    "insurance", "circumstance", "consequence", "sequence", "silence",
+    "presence", "absence", "licence", "license", "residence", "occurrence",
+    "emergency", "agency", "currency", "frequency", "tendency", "distinction",
+}
+
+
+def syllables(word: str) -> int:
+    """Vowel-group heuristic. Good enough for a reading-grade band, not for poetry."""
+    word = re.sub(r"[^a-z]", "", word.lower())
+    if not word:
+        return 0
+    if len(word) <= 3:
+        return 1
+    stripped = re.sub(r"(?:[^laeiouy]es|[^laeiouy]e)$", "", word)
+    stripped = re.sub(r"^y", "", stripped)
+    count = len(re.findall(r"[aeiouy]{1,2}", stripped))
+    return max(1, count)
+
+
+def flesch_kincaid_grade(sentences: List[str], word_list: List[str]) -> float:
+    """US school grade needed to read the text on the first pass."""
+    if not sentences or not word_list:
+        return 0.0
+    total_syllables = sum(syllables(w) for w in word_list)
+    words_per_sentence = len(word_list) / len(sentences)
+    syllables_per_word = total_syllables / len(word_list)
+    return round(0.39 * words_per_sentence + 11.8 * syllables_per_word - 15.59, 1)
+
+
+def nominalizations(text: str) -> List[str]:
+    """Verbs buried inside nouns: "make a determination" instead of "decide"."""
+    return [
+        m.group(0)
+        for m in NOMINALIZATION.finditer(text)
+        if m.group(0).lower().rstrip("s") not in NOMINALIZATION_ALLOW
+        and m.group(0).lower() not in NOMINALIZATION_ALLOW
+    ]
 
 
 def per_thousand(count: int, total_words: int) -> float:

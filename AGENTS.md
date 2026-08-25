@@ -9,29 +9,34 @@ full before working in its area.
 
 | Task | Skill |
 |---|---|
-| Marketing copy of any kind — headlines, landing sections, emails, ads, social, taglines | `skills/copywriter-superhero/SKILL.md` |
+| Any copy at all — UX microcopy, marketing copy, sales letters, books, scripts, newsletters, terms, help articles | `skills/copywriter-superhero/SKILL.md` |
 | Landing page structure, CTA hierarchy, layout, motion, accessibility, deploy | `skills/conversion-architect/SKILL.md` |
 | Exporting a page spec into deployable artefacts | `skills/json-exporter/SKILL.md` |
 
 ## Rules
 
-1. **Copy must pass the linter before a human sees it.**
-   `python3 skills/copywriter-superhero/scripts/score_copy.py draft.md` → exit 0.
-2. **Pages must pass the audit before deploy.**
+1. **Triage before drafting.** State the regime (microcopy, short-form, long-form,
+   editorial, functional), the reader's awareness level, and the traffic temperature, then
+   open that regime's rulebook. Routing by habit is the failure this repo exists to stop.
+2. **Copy must pass the linter before a human sees it.**
+   `python3 skills/copywriter-superhero/scripts/score_copy.py draft.md --regime <regime>`
+   → exit 0. Always pass `--regime`; omitting it auto-detects and prints its guess.
+3. **Pages must pass the audit before deploy.**
    `python3 skills/conversion-architect/scripts/audit_page.py page.html` → exit 0.
-3. **Load the voice codex before writing copy.**
-   `skills/copywriter-superhero/references/voice-codex.json`. Never invent a voice from
-   adjectives. Never hand-edit the codex — it is regenerated from `references/voice-samples/`.
-4. **Respect boundaries.** Copy is written only by `copywriter-superhero`. Structure
+4. **Brand voice is optional and comes last.** With no `--codex` the linter uses
+   plain-language defaults. When brand samples exist, extract a codex from **verbatim
+   published copy** and apply it as a final filter. Never hand-edit a codex, and never
+   write the samples yourself — that measures the model, not the brand.
+5. **Respect boundaries.** Copy is written only by `copywriter-superhero`. Structure
    belongs only to `conversion-architect`. Export belongs only to `json-exporter`.
-5. **Fix the copy, not the gate.** If a gate blocks genuinely good work, change the input
+6. **Fix the copy, not the gate.** If a gate blocks genuinely good work, change the input
    — add a real voice sample, or fix the replacement table — then re-run the selftest.
-6. **Never commit a secret.** `VERCEL_TOKEN` comes from the environment or `.env.local`.
+7. **Never commit a secret.** `VERCEL_TOKEN` comes from the environment or `.env.local`.
 
 ## Commands
 
 ```bash
-./scripts/selftest.sh        # 24 checks, run after any change to a gate or example
+./scripts/selftest.sh        # 38 checks, run after any change to a gate or example
 ./scripts/install.sh         # link skills into ~/.cursor/skills and ~/.claude/skills
 ```
 
@@ -42,6 +47,8 @@ full before working in its area.
 - Exit codes are the interface: `0` pass, `1` fail, `2` usage or config error.
 - The markdown reference files are the rule source. `score_copy.py` parses
   `buzzword-replacement-table.md` directly, so the docs cannot drift from the enforced rules.
+- Thresholds live in `references/profiles.json`, one profile per regime. Add a check by
+  declaring it in every profile, then implementing it once in `score_copy.py`.
 
 ## Do not
 
