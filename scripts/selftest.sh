@@ -245,6 +245,21 @@ for skill in "$CW" "$CA" "$JE"; do
   else
     bad "$(basename "$skill")/SKILL.md is $lines lines, over the 500-line budget"
   fi
+  # Claude Desktop rejects uploads when YAML description exceeds 1024 characters.
+  desc=$(python3 - "$skill/SKILL.md" <<'PY'
+import re, sys
+text = open(sys.argv[1], encoding="utf-8").read()
+m = re.search(r"^description:\s*(.+)$", text, re.M)
+print(len(m.group(1).strip()) if m else "missing")
+PY
+)
+  if [[ "$desc" == "missing" ]]; then
+    bad "$(basename "$skill")/SKILL.md is missing a description field"
+  elif [[ "$desc" -le 1024 ]]; then
+    ok "$(basename "$skill") description is $desc chars (Claude limit 1024)"
+  else
+    bad "$(basename "$skill") description is $desc chars, over Claude's 1024-char upload limit"
+  fi
 done
 
 printf '\n\033[1m%d passed, %d failed\033[0m\n' "$PASS" "$FAIL"
