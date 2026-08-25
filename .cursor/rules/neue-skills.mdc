@@ -1,0 +1,43 @@
+---
+description: Points the agent at the skills in this repo and the gates that must pass
+alwaysApply: true
+---
+
+# Neue Academy skills
+
+Three skills live in `skills/`. Read the relevant `SKILL.md` in full before working in
+its area.
+
+- **Copy of any kind** (headlines, landing sections, emails, ads, social, taglines) →
+  [copywriter-superhero](mdc:skills/copywriter-superhero/SKILL.md)
+- **Landing page structure, CTA hierarchy, layout, motion, accessibility, deploy** →
+  [conversion-architect](mdc:skills/conversion-architect/SKILL.md)
+- **Exporting a page spec into deployable artefacts** →
+  [json-exporter](mdc:skills/json-exporter/SKILL.md)
+
+## Gates that must pass
+
+```bash
+python3 skills/copywriter-superhero/scripts/score_copy.py draft.md   # exit 0 required
+python3 skills/conversion-architect/scripts/audit_page.py page.html  # exit 0 required
+./scripts/selftest.sh                                               # after any change
+```
+
+Never hand copy to the user, and never deploy a page, before the matching gate exits 0.
+
+## Boundaries
+
+Copy is written only by `copywriter-superhero`. Page structure belongs only to
+`conversion-architect`. Export belongs only to `json-exporter`. Do not duplicate another
+skill's job.
+
+## Voice
+
+Load `skills/copywriter-superhero/references/voice-codex.json` before writing copy. It is
+measured from real published samples. Never invent a brand voice from adjectives, and
+never hand-edit the codex — it is a build artefact, regenerated from
+`references/voice-samples/`.
+
+## Secrets
+
+`VERCEL_TOKEN` comes from the environment or `.env.local`. Never hard-code or commit one.

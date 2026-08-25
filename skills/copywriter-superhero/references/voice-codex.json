@@ -1,0 +1,341 @@
+{
+  "codex_version": 1,
+  "generated_from": {
+    "sample_dir": "references/voice-samples",
+    "files": [
+      {
+        "file": "01-landing-hero.md",
+        "source": "https://theneue.academy (hero + waitlist module), captured verbatim"
+      },
+      {
+        "file": "02-faq-answers.md",
+        "source": "https://theneue.academy (FAQ block), captured verbatim"
+      },
+      {
+        "file": "03-email-footer.md",
+        "source": "Neue Academy™ newsletter footer / legal block, captured verbatim"
+      }
+    ],
+    "total_words": 447,
+    "total_sentences": 33
+  },
+  "tone_descriptors": [
+    "brisk",
+    "high rhythm variance (long build, short landing)",
+    "reader-aware",
+    "formal, uncontracted",
+    "occasionally quantified",
+    "no exclamation"
+  ],
+  "metrics": {
+    "mean_sentence_words": 13.55,
+    "median_sentence_words": 11.0,
+    "sentence_words_stdev": 9.17,
+    "sentence_words_cv": 0.677,
+    "p10_sentence_words": 3,
+    "p90_sentence_words": 27,
+    "min_sentence_words": 2,
+    "max_sentence_words": 34,
+    "short_sentence_ratio": 0.242,
+    "long_sentence_ratio": 0.152,
+    "em_dash_per_1000": 2.24,
+    "colon_per_1000": 4.47,
+    "semicolon_per_1000": 0.0,
+    "question_per_1000": 6.71,
+    "exclamation_per_1000": 0.0,
+    "parenthetical_per_1000": 6.71,
+    "contractions_per_100": 0.22,
+    "second_person_per_100": 2.91,
+    "first_person_plural_per_100": 0.89,
+    "hedges_per_100": 0.0,
+    "ly_adverbs_per_100": 0.89,
+    "passive_hint_per_100": 0.45,
+    "spec_tokens_per_100": 1.12,
+    "tech_terms_per_100": 4.25,
+    "metaphor_per_1000": 4.47,
+    "imperative_opening_ratio": 0.182,
+    "headline_title_case_ratio": 0.059
+  },
+  "jargon_tolerance": "high — technical nouns are the default register; do not simplify them away",
+  "metaphor_frequency": "occasional — roughly one metaphor per section, never stacked",
+  "capitalization": "sentence case headlines",
+  "signature_phrases": [
+    {
+      "phrase": "neue academy",
+      "count": 7,
+      "n": 2
+    },
+    {
+      "phrase": "revelium studio",
+      "count": 4,
+      "n": 2
+    },
+    {
+      "phrase": "world-class digital",
+      "count": 3,
+      "n": 2
+    },
+    {
+      "phrase": "beta launch",
+      "count": 3,
+      "n": 2
+    },
+    {
+      "phrase": "world-class digital experiences",
+      "count": 2,
+      "n": 3
+    },
+    {
+      "phrase": "neue academy is",
+      "count": 2,
+      "n": 3
+    },
+    {
+      "phrase": "all code statements",
+      "count": 2,
+      "n": 3
+    },
+    {
+      "phrase": "of revelium studio",
+      "count": 2,
+      "n": 3
+    },
+    {
+      "phrase": "the ultimate",
+      "count": 2,
+      "n": 2
+    },
+    {
+      "phrase": "digital experiences",
+      "count": 2,
+      "n": 2
+    },
+    {
+      "phrase": "the waitlist",
+      "count": 2,
+      "n": 2
+    },
+    {
+      "phrase": "academy is",
+      "count": 2,
+      "n": 2
+    }
+  ],
+  "distinctive_terms": [
+    {
+      "term": "academy",
+      "count": 9
+    },
+    {
+      "term": "neue",
+      "count": 7
+    },
+    {
+      "term": "launch",
+      "count": 7
+    },
+    {
+      "term": "studio",
+      "count": 7
+    },
+    {
+      "term": "beta",
+      "count": 5
+    },
+    {
+      "term": "revelium",
+      "count": 5
+    },
+    {
+      "term": "world-class",
+      "count": 4
+    },
+    {
+      "term": "code",
+      "count": 4
+    },
+    {
+      "term": "platform",
+      "count": 4
+    },
+    {
+      "term": "digital",
+      "count": 3
+    },
+    {
+      "term": "experiences",
+      "count": 3
+    },
+    {
+      "term": "tools",
+      "count": 3
+    },
+    {
+      "term": "work",
+      "count": 3
+    },
+    {
+      "term": "waitlist",
+      "count": 3
+    },
+    {
+      "term": "private",
+      "count": 3
+    },
+    {
+      "term": "july",
+      "count": 3
+    },
+    {
+      "term": "breakdowns",
+      "count": 3
+    },
+    {
+      "term": "workflows",
+      "count": 3
+    },
+    {
+      "term": "deployment",
+      "count": 3
+    },
+    {
+      "term": "phase",
+      "count": 3
+    }
+  ],
+  "protected_terms": [
+    "breakdown",
+    "breakdowns",
+    "ecosystem",
+    "industry-grade",
+    "master",
+    "pipeline",
+    "pipelines",
+    "production-ready",
+    "sandbox",
+    "ship",
+    "studio-grade",
+    "workflows",
+    "world-class"
+  ],
+  "reclaimed_from_banned_list": [],
+  "banned_phrases": [
+    "explore",
+    "unlock",
+    "elevate",
+    "empower",
+    "unleash",
+    "leverage",
+    "utilize",
+    "delve",
+    "deep dive",
+    "dive in",
+    "journey",
+    "landscape",
+    "realm",
+    "tapestry",
+    "testament",
+    "revolutionary",
+    "game-changer",
+    "game-changing",
+    "transformative",
+    "seamless",
+    "seamlessly",
+    "effortless",
+    "frictionless",
+    "streamline",
+    "robust",
+    "comprehensive",
+    "cutting-edge",
+    "state-of-the-art",
+    "next-level",
+    "innovative",
+    "holistic",
+    "synergy",
+    "best-in-class",
+    "industry-leading",
+    "unparalleled",
+    "powerful",
+    "solution",
+    "offering",
+    "ensure",
+    "foster",
+    "navigate",
+    "myriad",
+    "plethora",
+    "a wide range of",
+    "crucial",
+    "vital",
+    "essential",
+    "paramount",
+    "meticulously",
+    "carefully crafted",
+    "curated",
+    "bespoke",
+    "boasts",
+    "nestled",
+    "vibrant",
+    "bustling",
+    "resonate",
+    "supercharge",
+    "turbocharge",
+    "additionally",
+    "moreover",
+    "furthermore",
+    "in order to",
+    "truly",
+    "genuinely",
+    "incredibly",
+    "literally",
+    "arguably",
+    "very",
+    "amazing",
+    "awesome",
+    "stunning",
+    "breathtaking",
+    "and more",
+    "etc.",
+    "it's important to note",
+    "it's worth noting",
+    "in today's fast-paced world",
+    "in an era of",
+    "take your",
+    "level up",
+    "unlock the power of",
+    "we've got you covered",
+    "look no further",
+    "the perfect",
+    "endless possibilities",
+    "skyrocket",
+    "harness",
+    "embark",
+    "tailored",
+    "cater to",
+    "top-notch",
+    "must-have",
+    "sleek",
+    "intuitive"
+  ],
+  "soft_banned_phrases": [
+    "unlock"
+  ],
+  "gates": {
+    "_comment": "Thresholds the linter enforces. Derived from the corpus, deliberately loosened so real brand copy passes its own test.",
+    "max_mean_sentence_words": 18.3,
+    "min_sentence_words_cv": 0.542,
+    "min_short_sentence_ratio": 0.121,
+    "min_spec_tokens_per_100": 1.0,
+    "max_hedges_per_100": 0.6,
+    "max_ly_adverbs_per_100": 1.8,
+    "max_em_dash_per_1000": 8.0,
+    "max_passive_hint_per_100": 1.5,
+    "max_protected_term_repeats": 2,
+    "required_angles": [
+      "logic",
+      "pain",
+      "social proof"
+    ],
+    "max_angle_overlap": 0.5,
+    "min_score_to_pass": 80
+  }
+}

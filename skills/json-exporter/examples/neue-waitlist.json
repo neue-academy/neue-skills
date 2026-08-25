@@ -1,0 +1,79 @@
+{
+  "meta": {
+    "lang": "en",
+    "title": "Neue Academy — 30 builds, 20 tools, one rate",
+    "description": "30 studio project breakdowns with the production source code attached, 20 industry-grade tools, and a founding rate that never moves again.",
+    "url": "https://neue-landing.vercel.app"
+  },
+  "theme": {
+    "accent": "#d8ff3e",
+    "glow": "rgba(216,255,62,0.14)"
+  },
+  "brand": {
+    "eyebrow": "Neue Academy — private beta, mid-July",
+    "footer": "© Neue Academy™, a company by Revelium™ Studio. Private Beta Lifecycle v1.0."
+  },
+  "hero": {
+    "terms": "200 seats. The rate never moves again."
+  },
+  "proof": {
+    "eyebrow": "What is actually in there",
+    "heading": "Every build arrives with the file that went to the client",
+    "figures": [
+      { "value": "30+", "label": "project breakdowns, production repo attached" },
+      { "value": "20+", "label": "industry-grade tools, end to end" },
+      { "value": "60h", "label": "what one teardown costs you alone" },
+      { "value": "200", "label": "founding seats before the public tier" }
+    ],
+    "quote": {
+      "text": "I rebuilt my portfolio from the scroll-timeline teardown, put the live URL at the top, and repriced at €2,400 the same month. I had never deployed anything before.",
+      "cite": "Founding member, cohort 1"
+    }
+  },
+  "objections": {
+    "eyebrow": "Before you decide",
+    "heading": "The three things people ask first",
+    "items": [
+      {
+        "q": "I have never deployed anything.",
+        "a": "Neither had the member quoted above, four months ago. Each teardown ends at a deployed URL, and the steps that got it there are in the commit history."
+      },
+      {
+        "q": "I already own most of these tools.",
+        "a": "The tools are not the product. The decisions are. You watch which passes got reverted at 2am and why, which is the part no documentation covers."
+      },
+      {
+        "q": "Will the rate go up on me later?",
+        "a": "No. Founding accounts stay at the foundational tier when public pricing scales. That is the whole reason the seat count is capped at 200."
+      }
+    ]
+  },
+  "offer": {
+    "eyebrow": "Founding member",
+    "heading": "One rate, locked for life",
+    "price": "€29",
+    "unit": "per month",
+    "compare": "€79 at public launch",
+    "includes": [
+      "30+ teardowns live on day one, new ones weekly",
+      "Production source code for every project",
+      "Private sandbox access from mid-July",
+      "The €29 rate held for as long as the account stays open"
+    ],
+    "secondary_cta": {
+      "label": "See what lands in week one",
+      "href": "#claim"
+    }
+  },
+  "final": {
+    "eyebrow": "Seat 1 of 200",
+    "heading": "Take the seat before the public tier exists",
+    "lede": "One email. You get the sandbox link in mid-July and the founding rate on the account permanently.",
+    "fine": "Launch updates only. Unsubscribe anytime.",
+    "form": {
+      "action": "#",
+      "label": "Email address",
+      "placeholder": "you@studio.com"
+    }
+  }
+}

@@ -1,0 +1,23 @@
+# Secrets — the Vercel token lives here and must never be committed
+.env
+.env.local
+.env.*.local
+
+# Build output
+dist/
+build/
+.vercel/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Local preview artefacts and browser-automation output
+.preview-*
+.playwright-mcp/
+
+# OS
+.DS_Store
+Thumbs.db

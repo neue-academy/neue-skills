@@ -1,0 +1,12 @@
+# No third-party Python dependencies.
+#
+# Every script here runs on the Python 3 standard library (3.8+), so the skills work in
+# any agent session without an install step. That is deliberate: a skill that needs
+# `pip install` before it can lint a headline will not get run.
+#
+# External tooling used by the deploy path only:
+#   vercel CLI  —  npm i -g vercel
+#   curl        —  preinstalled on macOS and most Linux images
+#
+# Verify the toolchain:
+#   python3 --version && vercel --version && ./scripts/selftest.sh
