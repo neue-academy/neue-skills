@@ -89,11 +89,6 @@ expect_exit 1 "audit catches injected violations" \
 
 expect_exit 0 "deploy_to_vercel.sh is syntactically valid" \
   bash -n "$CA/scripts/deploy_to_vercel.sh"
-if [[ -x "$CA/scripts/deploy_to_vercel.sh" ]]; then
-  ok "deploy_to_vercel.sh is executable"
-else
-  bad "deploy_to_vercel.sh is not executable — run chmod +x"
-fi
 
 head "json-exporter — spec and pipeline"
 
@@ -149,6 +144,15 @@ if [[ -n "$LEAKED" ]]; then
 else
   ok "no Vercel token in any committable file"
 fi
+# A shell script committed without its exec bit is a script nobody can run.
+while IFS= read -r script; do
+  if [[ -x "$script" ]]; then
+    ok "$script is executable"
+  else
+    bad "$script is not executable — chmod +x and git update-index --chmod=+x"
+  fi
+done < <(find scripts skills -name '*.sh' -type f | sort)
+
 for skill in "$CW" "$CA" "$JE"; do
   lines=$(grep -c '' "$skill/SKILL.md")
   if [[ "$lines" -le 500 ]]; then
