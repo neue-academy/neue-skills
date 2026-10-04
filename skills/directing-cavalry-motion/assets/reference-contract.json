@@ -1,0 +1,132 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Visual reference contract",
+  "description": "Extract this from a reference image BEFORE recreating it in Cavalry. It is both a template to fill and the schema its filled copies validate against. repeatedSystems is where repetition becomes a Duplicator instead of copies; uncertainties is where guesses are parked for runtime discovery, not shipped.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "canvas",
+    "composition",
+    "palette",
+    "anchors",
+    "primitives",
+    "repeatedSystems",
+    "paths",
+    "typography",
+    "layerOrder",
+    "motionHypotheses",
+    "loopRequirements",
+    "uncertainties"
+  ],
+  "properties": {
+    "canvas": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["width", "height"],
+      "properties": {
+        "width": { "type": "number" },
+        "height": { "type": "number" },
+        "backgroundColor": { "type": "string" },
+        "note": { "type": "string", "default": "Cavalry origin is centre, +Y is up." }
+      }
+    },
+    "composition": {
+      "type": "object",
+      "description": "Overall structure: symmetry, grid, focal point, balance.",
+      "additionalProperties": true
+    },
+    "palette": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["role", "value"],
+        "properties": {
+          "role": { "type": "string" },
+          "value": { "type": "string" }
+        }
+      }
+    },
+    "anchors": {
+      "type": "array",
+      "description": "Key positions in Cartesian, +Y up, origin centre.",
+      "items": {
+        "type": "object",
+        "required": ["name", "x", "y"],
+        "properties": {
+          "name": { "type": "string" },
+          "x": { "type": "number" },
+          "y": { "type": "number" }
+        }
+      }
+    },
+    "primitives": {
+      "type": "array",
+      "description": "Distinct shape kinds present, as UI-label hypotheses to be resolved to scripting ids via discovery.",
+      "items": {
+        "type": "object",
+        "required": ["label"],
+        "properties": {
+          "label": { "type": "string" },
+          "candidateNodeType": { "type": "string" },
+          "runtimeVerified": { "type": "boolean", "default": false }
+        }
+      }
+    },
+    "repeatedSystems": {
+      "type": "array",
+      "description": "Every set of 3+ repeated elements. Each becomes one source plus a Duplicator plus a Distribution.",
+      "items": {
+        "type": "object",
+        "required": ["name", "count", "layout"],
+        "properties": {
+          "name": { "type": "string" },
+          "count": { "type": ["integer", "string"] },
+          "layout": {
+            "type": "string",
+            "enum": ["linear", "grid", "circle", "shape-edges", "shape-points", "random", "custom", "path", "other"]
+          },
+          "candidateDistribution": { "type": "string" }
+        }
+      }
+    },
+    "paths": {
+      "type": "array",
+      "items": { "type": "object", "additionalProperties": true }
+    },
+    "typography": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "text": { "type": "string" },
+          "role": { "type": "string" },
+          "approxSize": { "type": "number" }
+        }
+      }
+    },
+    "layerOrder": {
+      "type": "array",
+      "description": "Back to front.",
+      "items": { "type": "string" }
+    },
+    "motionHypotheses": {
+      "type": "array",
+      "description": "What appears to move and how. Hypotheses, confirmed by rendering.",
+      "items": { "type": "string" }
+    },
+    "loopRequirements": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "loops": { "type": "boolean" },
+        "durationSeconds": { "type": "number" },
+        "seamlessness": { "type": "string" }
+      }
+    },
+    "uncertainties": {
+      "type": "array",
+      "description": "Anything the image cannot settle. Resolved by discovery and readback, never by guessing into the build.",
+      "items": { "type": "string" }
+    }
+  }
+}

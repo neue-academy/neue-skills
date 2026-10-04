@@ -1,0 +1,144 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://neue-academy/directing-cavalry-motion/graph-plan.schema.json",
+  "title": "Cavalry graph plan",
+  "description": "A concise plan written before any construction. Aliases stand in for Cavalry ids, which are not known until api.create returns them.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "sourceGeometry",
+    "proceduralSystems",
+    "generatorsAndDistributions",
+    "expectedConnections",
+    "controllerAttributes",
+    "animationDuration",
+    "loopStrategy",
+    "verificationFrames",
+    "assumptions",
+    "rollbackPoint"
+  ],
+  "properties": {
+    "scenarioId": { "type": "string" },
+    "regime": {
+      "type": "string",
+      "enum": ["motion", "procedural-art", "loop", "2.5d", "recreation", "static"]
+    },
+    "sourceGeometry": {
+      "type": "array",
+      "description": "The shape(s) that get repeated. Three or more entries with no duplicator in proceduralSystems is rejected.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["alias", "catalogNodeType", "runtimeVerified"],
+        "properties": {
+          "alias": { "type": "string" },
+          "catalogNodeType": { "type": "string" },
+          "role": { "type": "string" },
+          "runtimeVerified": { "type": "boolean" }
+        }
+      }
+    },
+    "proceduralSystems": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["alias", "kind", "catalogNodeType"],
+        "properties": {
+          "alias": { "type": "string" },
+          "kind": {
+            "type": "string",
+            "enum": ["duplicator", "behaviour", "falloff", "controller", "camera", "material", "deformer"]
+          },
+          "catalogNodeType": { "type": "string" },
+          "runtimeVerified": { "type": "boolean" }
+        }
+      }
+    },
+    "generatorsAndDistributions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["alias", "catalogNodeType", "layout"],
+        "properties": {
+          "alias": { "type": "string" },
+          "catalogNodeType": { "type": "string" },
+          "layout": {
+            "type": "string",
+            "enum": ["linear", "grid", "circle", "shape-edges", "shape-points", "random", "custom", "path", "other"]
+          },
+          "runtimeVerified": { "type": "boolean" }
+        }
+      }
+    },
+    "expectedConnections": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["from", "to"],
+        "properties": {
+          "from": { "type": "string", "description": "alias.outAttr, e.g. square-source.id" },
+          "to": { "type": "string", "description": "alias.inAttr, e.g. square-system.shapes" }
+        }
+      }
+    },
+    "controllerAttributes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["alias", "attribute"],
+        "properties": {
+          "alias": { "type": "string" },
+          "attribute": { "type": "string" },
+          "intent": { "type": "string" }
+        }
+      }
+    },
+    "animationDuration": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["frames", "fps"],
+      "properties": {
+        "frames": { "type": "integer", "minimum": 1 },
+        "fps": { "type": "number", "minimum": 1 },
+        "startFrame": { "type": "integer" },
+        "endFrame": { "type": "integer" }
+      }
+    },
+    "loopStrategy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["loops"],
+      "properties": {
+        "loops": { "type": "boolean" },
+        "method": { "type": "string" },
+        "cyclesOverLoop": { "type": "integer" },
+        "endFrameRule": { "type": "string" }
+      }
+    },
+    "verificationFrames": {
+      "type": "array",
+      "description": "The exact frames that will be rendered. A loop requires 0%, 25%, 50%, 75%, final, and seam-adjacent.",
+      "items": { "type": ["integer", "string"] },
+      "minItems": 1
+    },
+    "assumptions": {
+      "type": "array",
+      "description": "Every id or path not yet confirmed at runtime. Empty means everything was discovered.",
+      "items": { "type": "string" }
+    },
+    "rollbackPoint": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["capturedBefore", "method"],
+      "properties": {
+        "capturedBefore": { "type": "boolean" },
+        "method": { "type": "string", "description": "e.g. api.getAllSceneLayers() before build" },
+        "preexistingIds": { "type": "array", "items": { "type": "string" } }
+      }
+    }
+  }
+}

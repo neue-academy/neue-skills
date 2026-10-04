@@ -1,11 +1,16 @@
 # directing-cavalry-motion — implementation plan
 
-Status: phase 1 only. `SKILL.md` is intentionally absent. No Cavalry
-session was driven, and no baseline metrics were invented.
+Status: phases 1–3 and 6–7 authored. `SKILL.md`, all twelve references, the
+four scripts, both assets, and the generated capability map now exist. No
+Cavalry session was driven, so no baseline or skill-run metrics were
+invented — `tests/assert_suite.py` still exits 1 until real runs land, and
+that is the correct state.
 
-The next edit in this directory is `SKILL.md`, and only after the seven
-scenarios below have been run once without the skill. Until those runs
-exist, `tests/assert_suite.py` exits 1.
+What still requires a live Cavalry MCP connection (a running Cavalry with
+the extension approved), and therefore is not done here: the baseline runs
+(phase 4), the skill-enabled runs (phase 5 re-run), the MCP extension
+implementation (phases 8–9), and the release report (phase 10). None of
+those may be faked.
 
 ## What was inspected
 
@@ -235,7 +240,10 @@ Predicted failures in the scenario files are marked
 with phase 2 or 3, when the skill first tells the agent to fill them.
 `known-failures.md` starts with the seventeen items in this plan.
 
-## Out of scope for this commit
+## Out of scope — needs a live Cavalry session, cannot be faked
 
-No `SKILL.md`, no references, no MCP patch, no rendered frames, no claimed
-layer counts from a session.
+No MCP patch under `integrations/cavalry-mcp/` with running code, no rendered
+frames, no baseline or skill-run result files, no claimed layer counts from a
+session. `scripts/build-capability-map.ts` reads the installed app; the
+committed `references/mcp-capability-map.json` is its generated output for
+Cavalry 2.8.0 and is regenerated, never hand-edited.
