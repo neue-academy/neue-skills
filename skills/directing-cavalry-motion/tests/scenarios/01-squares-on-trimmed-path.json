@@ -1,0 +1,30 @@
+{
+  "id": "01-squares-on-trimmed-path",
+  "title": "Squares travelling on a trimmed path",
+  "prompt": "Make eight identical squares travel evenly along one closed path. Draw the path on with a trimmed stroke, and loop the motion in four seconds.",
+  "agent_sees": "prompt-only",
+  "repeat_prompt": 1,
+  "expected_graph": "expected-graphs/01-squares-on-trimmed-path.json",
+  "assertions": [
+    {
+      "id": "A1",
+      "statement": "Block when three or more source shapes exist and no duplicator exists. Eight independently created squares is the failure this test exists to catch."
+    },
+    {
+      "id": "A2",
+      "statement": "Pass only with one source shape, one duplicator, and one path-based distribution. Catalog candidates are shapeEdgeDistribution and pathDistribution. The run must quote the get_layer_definition result that justified the choice. Neither id is a verified runtime fact in this file."
+    },
+    {
+      "id": "A3",
+      "statement": "Trim attributes are discovered on the live layer before they are set, then read back. Catalog names on strokeMaterial are trim, trimStart, trimEnd, and trimTravel. A dotted stroke.trim path from the motion-graphics hint still requires that discovery."
+    },
+    {
+      "id": "A4",
+      "statement": "Animation evidence includes renders at 0%, 25%, 50%, 75%, the final in-range frame, and a seam-adjacent frame. A single snapshot fails."
+    }
+  ],
+  "hypothesis": {
+    "not_a_measurement": true,
+    "predicted_unskilled_failure": "An agent without the skill creates one rectangle per square, guesses trim attribute paths, and verifies with one image."
+  }
+}

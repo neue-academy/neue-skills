@@ -1,0 +1,17 @@
+{
+  "id": "fixture-01-independent-squares",
+  "kind": "synthetic-fixture",
+  "not_an_agent_run": true,
+  "purpose": "Scorer fixture. Not a Cavalry session and not a baseline result.",
+  "nodes": [
+    {"alias": "square-1", "role": "source-geometry", "catalog_node_type": "rectangleShape"},
+    {"alias": "square-2", "role": "source-geometry", "catalog_node_type": "rectangleShape"},
+    {"alias": "square-3", "role": "source-geometry", "catalog_node_type": "rectangleShape"},
+    {"alias": "square-4", "role": "source-geometry", "catalog_node_type": "rectangleShape"},
+    {"alias": "square-5", "role": "source-geometry", "catalog_node_type": "rectangleShape"},
+    {"alias": "square-6", "role": "source-geometry", "catalog_node_type": "rectangleShape"},
+    {"alias": "square-7", "role": "source-geometry", "catalog_node_type": "rectangleShape"},
+    {"alias": "square-8", "role": "source-geometry", "catalog_node_type": "rectangleShape"}
+  ],
+  "connections": []
+}

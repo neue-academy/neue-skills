@@ -1,0 +1,18 @@
+{
+  "scenario_id": "02-radial-repeated-reference",
+  "catalog_source": "Cavalry 2.8.0 Contents/assets/Definitions/nodeDefinitions.json",
+  "runtime_verified": false,
+  "block_if": [
+    "source_geometry_count >= 3 and duplicator_count == 0"
+  ],
+  "pass": {
+    "source_geometry_count": 1,
+    "duplicator_count": 1,
+    "distribution": {
+      "count": 1,
+      "catalog_node_type": "circleDistribution",
+      "requires_discovery_quote": true
+    },
+    "reference_contract_before_build": true
+  }
+}

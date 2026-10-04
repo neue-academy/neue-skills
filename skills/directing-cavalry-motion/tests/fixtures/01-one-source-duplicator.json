@@ -1,0 +1,15 @@
+{
+  "id": "fixture-01-one-source-duplicator",
+  "kind": "synthetic-fixture",
+  "not_an_agent_run": true,
+  "purpose": "Scorer fixture. Not a Cavalry session and not a baseline result.",
+  "nodes": [
+    {"alias": "square-source", "role": "source-geometry", "catalog_node_type": "rectangleShape"},
+    {"alias": "square-system", "role": "duplicator", "catalog_node_type": "duplicator"},
+    {"alias": "along-path", "role": "distribution", "catalog_node_type": "shapeEdgeDistribution"}
+  ],
+  "connections": [
+    {"from": "square-source.id", "to": "square-system.shapes"},
+    {"from": "along-path.id", "to": "square-system.generator"}
+  ]
+}

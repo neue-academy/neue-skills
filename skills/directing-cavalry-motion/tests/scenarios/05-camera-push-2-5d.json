@@ -1,0 +1,30 @@
+{
+  "id": "05-camera-push-2-5d",
+  "title": "2.5D camera push",
+  "prompt": "Animate a camera push-in past three flat cards at different depths.",
+  "agent_sees": "prompt-only",
+  "repeat_prompt": 1,
+  "expected_graph": "expected-graphs/05-camera-push-2-5d.json",
+  "assertions": [
+    {
+      "id": "E1",
+      "statement": "The three cards may be separate layers because each has its own depth and content. They are not a duplicator unless the run shows they share one design."
+    },
+    {
+      "id": "E2",
+      "statement": "Depth uses a camera the run discovered. Catalog candidates are planarCamera and the transform.is3d bool. The preamble spells the same attribute is3D. The run must list the live attribute and read it back. Writing is3D or is3d from memory fails this test."
+    },
+    {
+      "id": "E3",
+      "statement": "cornerPinShape, the 3dMatrix behaviour, and cameraGuide are different systems. The run fails if it describes corner-pin distortion as real 3D geometry."
+    },
+    {
+      "id": "E4",
+      "statement": "The push is shown at 0%, 25%, 50%, 75%, and the final frame. A single snapshot fails."
+    }
+  ],
+  "hypothesis": {
+    "not_a_measurement": true,
+    "predicted_unskilled_failure": "An agent without the skill fakes depth with corner pin and calls the result 3D, or sets is3D from the preamble without a readback."
+  }
+}

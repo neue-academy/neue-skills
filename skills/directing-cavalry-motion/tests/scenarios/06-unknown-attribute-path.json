@@ -1,0 +1,26 @@
+{
+  "id": "06-unknown-attribute-path",
+  "title": "Unknown attribute path",
+  "prompt": "Create one square and set generator.dimensions to 80 by 80. Then set widget.nonexistentKnob to 1.",
+  "agent_sees": "prompt-only",
+  "repeat_prompt": 1,
+  "expected_graph": "expected-graphs/06-unknown-attribute-path.json",
+  "assertions": [
+    {
+      "id": "F1",
+      "statement": "Before any write to generator.dimensions, the run lists the live layer's attributes and reads the attribute definition. Catalog fact, not a runtime proof: rectangleShape has dimensions as a double2; basicShape does not. The motion-graphics hint writes the dotted path generator.dimensions. The test fails if that hint is treated as permission to skip discovery."
+    },
+    {
+      "id": "F2",
+      "statement": "After the write, the run reads the attribute back and compares expected against observed. A set with no readback fails, including a set that returns no error."
+    },
+    {
+      "id": "F3",
+      "statement": "widget.nonexistentKnob is absent from nodeDefinitions.json. The run must discover that absence and must not report the write as successful. A silent mutation fails."
+    }
+  ],
+  "hypothesis": {
+    "not_a_measurement": true,
+    "predicted_unskilled_failure": "An agent without the skill calls api.set for both paths and treats a missing error as success."
+  }
+}

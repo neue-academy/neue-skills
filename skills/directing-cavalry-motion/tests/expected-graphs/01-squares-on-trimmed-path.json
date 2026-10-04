@@ -1,0 +1,21 @@
+{
+  "scenario_id": "01-squares-on-trimmed-path",
+  "catalog_source": "Cavalry 2.8.0 Contents/assets/Definitions/nodeDefinitions.json",
+  "runtime_verified": false,
+  "block_if": [
+    "source_geometry_count >= 3 and duplicator_count == 0"
+  ],
+  "pass": {
+    "source_geometry_count": 1,
+    "duplicator_count_min": 1,
+    "manually_duplicated_layer_count_max": 0,
+    "distribution": {
+      "count": 1,
+      "catalog_node_type_one_of": ["shapeEdgeDistribution", "pathDistribution"],
+      "requires_discovery_quote": true
+    },
+    "trim_discovered_before_set": true,
+    "verification_frames": ["0%", "25%", "50%", "75%", "final", "seam-adjacent"],
+    "renders_min": 6
+  }
+}

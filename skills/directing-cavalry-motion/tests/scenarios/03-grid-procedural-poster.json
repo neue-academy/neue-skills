@@ -1,0 +1,26 @@
+{
+  "id": "03-grid-procedural-poster",
+  "title": "Grid-based procedural poster",
+  "prompt": "Make a poster: a 6 by 4 grid of identical small rectangles, and the title GRID in the corner.",
+  "agent_sees": "prompt-only",
+  "repeat_prompt": 1,
+  "expected_graph": "expected-graphs/03-grid-procedural-poster.json",
+  "assertions": [
+    {
+      "id": "C1",
+      "statement": "The twenty-four cells are one source shape plus one duplicator plus one gridDistribution. A layer per cell fails."
+    },
+    {
+      "id": "C2",
+      "statement": "The title is a separate text layer because its geometry and content are independent of the cells. Its node type is discovered. Catalog candidate textShape is not used until search_layer_types returns it."
+    },
+    {
+      "id": "C3",
+      "statement": "Grid count is discovered before it is set. nodeDefinitions.json types gridDistribution.count as int2. The duplicator hint text calls generator.count a double2 for grids. The run must record which type the live definition returned and read the value back. Neither source is treated as settled."
+    }
+  ],
+  "hypothesis": {
+    "not_a_measurement": true,
+    "predicted_unskilled_failure": "An agent without the skill loops api.create twenty-four times and sets a guessed count type."
+  }
+}

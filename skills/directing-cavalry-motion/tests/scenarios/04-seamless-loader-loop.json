@@ -1,0 +1,30 @@
+{
+  "id": "04-seamless-loader-loop",
+  "title": "Seamless loader loop",
+  "prompt": "Make a seamless looping loader, about two seconds, that can play forever without a hitch on the cut.",
+  "agent_sees": "prompt-only",
+  "repeat_prompt": 1,
+  "expected_graph": "expected-graphs/04-seamless-loader-loop.json",
+  "assertions": [
+    {
+      "id": "D1",
+      "statement": "Repeated marks in the loader are one duplicator system. Separate copies of the same arc or dash fail."
+    },
+    {
+      "id": "D2",
+      "statement": "The loop is checked at 0%, 25%, 50%, 75%, the final in-range frame, and a seam-adjacent frame. Renders exist for those samples. One still fails."
+    },
+    {
+      "id": "D3",
+      "statement": "The run does not treat endFrame = N - 1 as a fact until it has sampled the seam. The shipped seamless-loops hint states that rule and also states that api.setFrame clamps silently. The test fails if the agent samples past the end and calls a clamped read a successful seam check."
+    },
+    {
+      "id": "D4",
+      "statement": "The final rendered frame is not a duplicate of frame 0 inside the delivered range."
+    }
+  ],
+  "hypothesis": {
+    "not_a_measurement": true,
+    "predicted_unskilled_failure": "An agent without the skill builds the loader from copied layers, renders one frame, and includes a duplicate terminal frame."
+  }
+}

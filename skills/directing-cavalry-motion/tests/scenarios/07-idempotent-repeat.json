@@ -1,0 +1,26 @@
+{
+  "id": "07-idempotent-repeat",
+  "title": "Same request twice",
+  "prompt": "Build a 3 by 3 grid of identical squares.",
+  "agent_sees": "prompt-only",
+  "repeat_prompt": 2,
+  "expected_graph": "expected-graphs/07-idempotent-repeat.json",
+  "assertions": [
+    {
+      "id": "G1",
+      "statement": "The first request is one source shape, one duplicator, and one gridDistribution. Nine separate squares fail."
+    },
+    {
+      "id": "G2",
+      "statement": "The same prompt is sent again in the same scene, without telling the agent it is a duplicate test. After the second request there is still one duplicator and one source shape."
+    },
+    {
+      "id": "G3",
+      "statement": "The current MCP tool list has no upsert, managed-metadata, or scene-graph tool. Passing G2 requires the agent to inspect the open scene and reuse what it finds. Creating a second system and deleting it only after the fact still fails if the transcript shows the duplicate was built."
+    }
+  ],
+  "hypothesis": {
+    "not_a_measurement": true,
+    "predicted_unskilled_failure": "The second request creates a second grid. The preamble itself says a re-run is not rolled back and duplicates layers."
+  }
+}

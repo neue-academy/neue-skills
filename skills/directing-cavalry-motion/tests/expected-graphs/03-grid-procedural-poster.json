@@ -1,0 +1,19 @@
+{
+  "scenario_id": "03-grid-procedural-poster",
+  "catalog_source": "Cavalry 2.8.0 Contents/assets/Definitions/nodeDefinitions.json",
+  "runtime_verified": false,
+  "block_if": [
+    "source_geometry_count >= 3 and duplicator_count == 0"
+  ],
+  "pass": {
+    "source_geometry_count": 1,
+    "duplicator_count": 1,
+    "independent_text_layers_max": 1,
+    "distribution": {
+      "count": 1,
+      "catalog_node_type": "gridDistribution",
+      "requires_discovery_quote": true,
+      "count_type_must_be_read_back": true
+    }
+  }
+}

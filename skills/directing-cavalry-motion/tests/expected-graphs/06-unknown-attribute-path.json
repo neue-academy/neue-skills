@@ -1,0 +1,17 @@
+{
+  "scenario_id": "06-unknown-attribute-path",
+  "catalog_source": "Cavalry 2.8.0 Contents/assets/Definitions/nodeDefinitions.json",
+  "runtime_verified": false,
+  "block_if": [
+    "attribute_written_before_getAttributes",
+    "no_readback_after_set",
+    "unknown_path_reported_as_success"
+  ],
+  "pass": {
+    "source_geometry_count": 1,
+    "paths_under_test": ["generator.dimensions", "widget.nonexistentKnob"],
+    "discovery_before_write": true,
+    "readback_compared": true,
+    "catalog_note": "rectangleShape.dimensions is double2. basicShape has no dimensions attribute. widget.nonexistentKnob is not in the catalog."
+  }
+}

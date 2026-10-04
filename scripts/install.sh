@@ -48,6 +48,11 @@ for target in "${TARGETS[@]}"; do
     name="$(basename "$skill_dir")"
     link="${target}/${name}"
 
+    if [[ ! -f "${skill_dir}SKILL.md" && -f "${skill_dir}IMPLEMENTATION-PLAN.md" ]]; then
+      say "skipping $name until SKILL.md exists"
+      continue
+    fi
+
     if [[ "$UNINSTALL" -eq 1 ]]; then
       if [[ -L "$link" ]]; then
         rm "$link"; say "removed ${link/#$HOME/~}"
@@ -72,6 +77,10 @@ FAIL=0
 for skill_dir in "$SKILLS_SRC"/*/; do
   name="$(basename "$skill_dir")"
   if [[ ! -f "${skill_dir}SKILL.md" ]]; then
+    if [[ -f "${skill_dir}IMPLEMENTATION-PLAN.md" ]]; then
+      say "skipping $name until SKILL.md exists"
+      continue
+    fi
     printf '  missing SKILL.md in %s\n' "$name" >&2; FAIL=1; continue
   fi
   if ! head -5 "${skill_dir}SKILL.md" | grep -q "^name: ${name}$"; then

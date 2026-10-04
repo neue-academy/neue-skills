@@ -1,0 +1,16 @@
+{
+  "scenario_id": "04-seamless-loader-loop",
+  "catalog_source": "Cavalry 2.8.0 Contents/assets/Definitions/nodeDefinitions.json",
+  "runtime_verified": false,
+  "block_if": [
+    "repeated_mark_count >= 3 and duplicator_count == 0",
+    "render_count < 6",
+    "seam_sampled_with_clamped_setFrame"
+  ],
+  "pass": {
+    "duplicator_count_min": 1,
+    "verification_frames": ["0%", "25%", "50%", "75%", "final", "seam-adjacent"],
+    "duplicate_terminal_frame": false,
+    "loop_rule_verified_by_sample": true
+  }
+}

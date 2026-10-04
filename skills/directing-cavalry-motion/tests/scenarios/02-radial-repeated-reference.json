@@ -1,0 +1,26 @@
+{
+  "id": "02-radial-repeated-reference",
+  "title": "Radial repeated reference",
+  "prompt": "Recreate a radial badge: twelve identical ticks evenly spaced around a circle, one colour, no numbers.",
+  "agent_sees": "prompt-only",
+  "repeat_prompt": 1,
+  "expected_graph": "expected-graphs/02-radial-repeated-reference.json",
+  "assertions": [
+    {
+      "id": "B1",
+      "statement": "Block when each tick is its own layer. Pass only with one source shape, one duplicator, and one circleDistribution confirmed by get_layer_definition before creation."
+    },
+    {
+      "id": "B2",
+      "statement": "A complex visual reference is reconstructed only after a reference contract exists. This prompt is simple enough that the contract may be short, but palette, anchors, repeatedSystems, and uncertainties must still be written down before layers are created."
+    },
+    {
+      "id": "B3",
+      "statement": "The radius or sweep attribute is read back after it is set. Catalog shows circleDistribution.angle defaulting to 360 and count as an int. Those catalog fields are not a substitute for readback."
+    }
+  ],
+  "hypothesis": {
+    "not_a_measurement": true,
+    "predicted_unskilled_failure": "An agent without the skill places twelve rotated shapes by script instead of one circleDistribution."
+  }
+}

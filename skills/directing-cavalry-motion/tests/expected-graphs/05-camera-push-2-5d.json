@@ -1,0 +1,18 @@
+{
+  "scenario_id": "05-camera-push-2-5d",
+  "catalog_source": "Cavalry 2.8.0 Contents/assets/Definitions/nodeDefinitions.json",
+  "runtime_verified": false,
+  "block_if": [
+    "corner_pin_described_as_3d_geometry",
+    "camera_attribute_set_without_discovery"
+  ],
+  "pass": {
+    "independent_cards": 3,
+    "camera_discovered": true,
+    "catalog_candidates": ["planarCamera", "cameraGuide", "3dMatrix", "cornerPinShape"],
+    "depth_attribute_catalog_id": "transform.is3d",
+    "preamble_spelling_not_authoritative": "is3D",
+    "verification_frames": ["0%", "25%", "50%", "75%", "final"],
+    "renders_min": 5
+  }
+}
