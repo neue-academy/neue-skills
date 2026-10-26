@@ -59,7 +59,7 @@ SKIP_ABOUT_LAST = re.compile(
     r"^(what|why|how) (does|did|do|is|was) (that|this|it|you)\b|"
     r"^(what do you mean|explain (that|this)|can you elaborate)", re.I)
 OPT_OUT = re.compile(
-    r"\b(don'?t|do not|never|without|no|ignore)\b[^.]{0,40}\b(skillsync|smart[- ]memory|memory|"
+    r"\b(don'?t|do not|never|without|no|ignore)\b[^.]{0,40}\b(smart[- ]memory|memory|"
     r"memories|past sessions?|previous sessions?|old work|history|recall)\b", re.I)
 CROSS_PROJECT = re.compile(
     r"\b(other|another|previous|last|old) (app|project|repo|codebase|site|client)\b|"

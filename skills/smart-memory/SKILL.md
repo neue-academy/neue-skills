@@ -6,13 +6,10 @@ description: Gives every new agent thread the history of the ones before it. Bef
 # Smart Memory
 
 An agent that starts every thread from zero re-asks settled questions, re-tries fixes that
-already failed, and contradicts decisions made last week. This skill closes that gap the way
-Skillsync does — search every past session before each prompt, surface one cited
-recollection — and adds the half Skillsync leaves out: a typed event log written while
-working, so the next thread inherits decisions and dead ends, not only transcripts.
-
-How Skillsync works, reconstructed from its shipped binary:
-[references/skillsync-teardown.md](references/skillsync-teardown.md).
+already failed, and contradicts decisions made last week. This skill closes that gap.
+Before each prompt it searches every past session and surfaces one cited recollection,
+and while working it writes a typed event log, so the next thread inherits decisions
+and dead ends, not only transcripts.
 
 ## Boundaries
 
@@ -43,7 +40,7 @@ python3 skills/smart-memory/scripts/recall.py "<the prompt, verbatim>" --cwd "$P
   [--session <current-session-id>] [--json]
 ```
 
-The script runs the same three decisions Skillsync makes, in order:
+The script makes three decisions, in order:
 
 1. **Gate.** Skip small talk, go-aheads ("yes, continue"), questions about the last answer,
    replies to a question the agent just asked, and any prompt that says not to use memory.
@@ -69,8 +66,8 @@ which are the whole point:
 
 Full voice and dialogue rules: [references/dialogue.md](references/dialogue.md).
 
-**Claude Code and Codex** can run this automatically on every prompt, exactly like
-Skillsync's plugin: install [hooks/claude-hooks.json](hooks/claude-hooks.json). The hook
+**Claude Code and Codex** can run this automatically on every prompt: install
+[hooks/claude-hooks.json](hooks/claude-hooks.json). The hook
 prints `additionalContext`, must never block a prompt, and gives up after `--budget` seconds.
 **Cursor** hooks cannot inject context before a prompt, so in Cursor step 1 is yours to run.
 
@@ -182,7 +179,6 @@ when recall returned a past fix for the same error. Never record an event that d
 
 | File | Read it when |
 |---|---|
-| [references/skillsync-teardown.md](references/skillsync-teardown.md) | You need to know why the pipeline is shaped this way |
 | [references/dialogue.md](references/dialogue.md) | Writing a recollection, or deciding whether to ask |
 | [references/event-schema.md](references/event-schema.md) | Logging events, or reading someone else's log |
 | [references/app-blueprint.md](references/app-blueprint.md) | Designing memory, events or tracking into an app |
