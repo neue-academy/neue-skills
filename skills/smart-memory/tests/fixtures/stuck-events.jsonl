@@ -1,0 +1,5 @@
+{"id": "err-00000001", "ts": "2026-10-20T10:00:00Z", "thread": "t2", "type": "error", "summary": "Checkout total off by one cent on EUR carts", "about": "rounding"}
+{"id": "hyp-00000002", "ts": "2026-10-20T10:05:00Z", "thread": "t2", "type": "hypothesis", "summary": "Float math in cart.total()", "about": "rounding"}
+{"id": "att-00000003", "ts": "2026-10-20T10:10:00Z", "thread": "t2", "type": "attempt", "summary": "Math.round on subtotal", "tests": "hyp-00000002", "outcome": "failed"}
+{"id": "att-00000004", "ts": "2026-10-20T10:20:00Z", "thread": "t2", "type": "attempt", "summary": "toFixed(2) on line items", "tests": "hyp-00000002", "outcome": "failed"}
+{"id": "att-00000005", "ts": "2026-10-21T09:00:00Z", "thread": "t3", "type": "attempt", "summary": "Switched to integer cents in total only", "tests": "hyp-00000002", "outcome": "failed"}

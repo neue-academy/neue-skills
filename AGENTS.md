@@ -12,6 +12,7 @@ full before working in its area.
 | Any copy at all — UX microcopy, marketing copy, sales letters, books, scripts, newsletters, terms, help articles | `skills/copywriter-superhero/SKILL.md` |
 | Landing page structure, CTA hierarchy, layout, motion, accessibility, deploy | `skills/conversion-architect/SKILL.md` |
 | Exporting a page spec into deployable artefacts | `skills/json-exporter/SKILL.md` |
+| Recalling past sessions before a prompt, logging decisions and debugging attempts, memory in user-designed apps | `skills/smart-memory/SKILL.md` |
 
 ## Rules
 

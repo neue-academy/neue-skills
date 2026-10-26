@@ -1,0 +1,16 @@
+{
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$HOME/.claude/skills/smart-memory/scripts/recall.py\" --hook claude --budget 25",
+            "timeout": 35,
+            "statusMessage": "Checking past sessions"
+          }
+        ]
+      }
+    ]
+  }
+}

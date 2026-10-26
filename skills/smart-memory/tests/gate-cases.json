@@ -1,0 +1,17 @@
+{
+  "cases": [
+    {"prompt": "the relay is stuck reconnecting again", "expect": "folder"},
+    {"prompt": "why does the release build fail to sign?", "expect": "folder"},
+    {"prompt": "should we cache the search results?", "expect": "folder"},
+    {"prompt": "add a keyboard shortcut for toggling the sidebar", "expect": "folder"},
+    {"prompt": "set up the release workflow the way we did in the other app", "expect": "all"},
+    {"prompt": "how do I usually structure the settings page?", "expect": "all"},
+    {"prompt": "thanks, that looks good", "expect": "skip"},
+    {"prompt": "yes, go ahead", "expect": "skip"},
+    {"prompt": "try that again", "expect": "skip"},
+    {"prompt": "what does that last function do?", "expect": "skip"},
+    {"prompt": "fix the login bug but don't use past sessions for this", "expect": "skip"},
+    {"prompt": "ignore memory and start fresh on the onboarding flow", "expect": "skip"},
+    {"prompt": "", "expect": "skip"}
+  ]
+}

@@ -1,0 +1,7 @@
+{"id": "goa-00000001", "ts": "2026-10-16T09:40:00Z", "thread": "a1b2c3d4", "type": "goal", "summary": "Stop the relay reconnect loop after 1006 closes"}
+{"id": "err-00000002", "ts": "2026-10-16T09:41:00Z", "thread": "a1b2c3d4", "type": "error", "summary": "Reconnect attempt 14 failed (1006), retrying in 0ms", "files": ["src/relay/socket.ts"], "about": "relay-backoff"}
+{"id": "hyp-00000003", "ts": "2026-10-16T09:45:00Z", "thread": "a1b2c3d4", "type": "hypothesis", "summary": "attempt counter is re-initialised inside onClose, so backoff resets to 0", "about": "relay-backoff"}
+{"id": "att-00000004", "ts": "2026-10-16T09:50:00Z", "thread": "a1b2c3d4", "type": "attempt", "summary": "Moved attempt to connection scope; 20x 1006 test now backs off", "tests": "hyp-00000003", "outcome": "passed"}
+{"id": "fix-00000005", "ts": "2026-10-16T09:55:00Z", "thread": "a1b2c3d4", "type": "fix", "summary": "Backoff kept across reconnects, capped at 30s with jitter (4f2e9a1)", "resolves": "err-00000002"}
+{"id": "pre-00000006", "ts": "2026-10-16T09:56:00Z", "thread": "a1b2c3d4", "type": "preference", "summary": "Commit after every passing fix, one change per commit"}
+{"id": "han-00000007", "ts": "2026-10-16T09:58:00Z", "thread": "a1b2c3d4", "type": "handoff", "summary": "Relay fixed and committed; open: server-side close codes not yet logged"}

@@ -13,6 +13,7 @@ name the exact line to fix.
 | [`copywriter-superhero`](skills/copywriter-superhero/SKILL.md) | Any copy, routed by type: UX microcopy, marketing copy, long-form sales letters, books and scripts, terms and help articles | `score_copy.py --regime <name>` — regime-specific gates: banned words and constructions, rhythm variance, specificity density, reading grade, buried verbs, persuasion-architecture completeness, angle separation |
 | [`conversion-architect`](skills/conversion-architect/SKILL.md) | Landing page assembly, CTA hierarchy, motion, accessibility, deploy | `audit_page.py` — section contract, one `h1`, CTA rules, a11y, metadata |
 | [`json-exporter`](skills/json-exporter/SKILL.md) | Page spec + copy → deployable bundle | `export.py --validate-only` — spec shape, field counts, lengths |
+| [`smart-memory`](skills/smart-memory/SKILL.md) | Recalls what past agent sessions already did before each prompt; logs decisions, attempts and fixes as typed events | `events.py validate` — event schema, no fix without a root cause, stop after three failed attempts |
 
 The gates are why this works. On the same brief, generic model output scores **0/100** and
 copy written through the skill scores **100/100** — and a brand's own published copy passes

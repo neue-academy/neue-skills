@@ -18,6 +18,9 @@ venv/
 .preview-*
 .playwright-mcp/
 
+# smart-memory event logs are private by default; commit one only by team decision
+.memory/
+
 # OS
 .DS_Store
 Thumbs.db

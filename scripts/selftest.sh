@@ -211,6 +211,20 @@ for angle in pain "social proof"; do
       --copy "$CW/examples/good-short-form.md" --angle "$angle" --out "$TMP/dist-$RANDOM"
 done
 
+head "smart-memory — recall and events"
+
+SM="skills/smart-memory"
+expect_exit 0 "recall gate, search, scope, redaction and hook behave" \
+  python3 "$SM/tests/assert_recall.py"
+expect_exit 0 "a well-formed event log validates" \
+  python3 "$SM/scripts/events.py" validate "$SM/tests/fixtures/good-events.jsonl"
+expect_exit 1 "a malformed event log is caught (no-root-cause fix, bad type, secret)" \
+  python3 "$SM/scripts/events.py" validate "$SM/tests/fixtures/bad-events.jsonl"
+expect_exit 1 "three failed attempts with no fix is a stop sign" \
+  python3 "$SM/scripts/events.py" validate "$SM/tests/fixtures/stuck-events.jsonl"
+expect_exit 1 "events.py add rejects a fix that names no error" \
+  python3 "$SM/scripts/events.py" --file "$TMP/events.jsonl" add --type fix --summary "changed a timeout"
+
 head "hygiene"
 
 # Only files git would actually commit. Scanning the working tree would flag the
@@ -238,7 +252,7 @@ while IFS= read -r script; do
   fi
 done < <(find scripts skills -name '*.sh' -type f | sort)
 
-for skill in "$CW" "$CA" "$JE"; do
+for skill in "$CW" "$CA" "$JE" "$SM"; do
   lines=$(grep -c '' "$skill/SKILL.md")
   if [[ "$lines" -le 500 ]]; then
     ok "$(basename "$skill")/SKILL.md is $lines lines (budget 500)"

@@ -1,0 +1,2 @@
+{"role": "user", "message": {"content": [{"type": "text", "text": "<timestamp>Monday, Oct 26, 2026, 5:55 PM (UTC+1)</timestamp>\n<user_query>\nthe relay is stuck reconnecting again\n</user_query>"}]}}
+{"role": "assistant", "message": {"content": [{"type": "text", "text": "Should I check the relay backoff first or the server logs?"}]}}

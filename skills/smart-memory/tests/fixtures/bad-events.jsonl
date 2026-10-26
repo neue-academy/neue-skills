@@ -1,0 +1,4 @@
+{"id": "fix-00000001", "ts": "2026-10-16T09:55:00Z", "thread": "t1", "type": "fix", "summary": "Changed the timeout and it seems fine now"}
+{"id": "vib-00000002", "ts": "yesterday", "thread": "t1", "type": "vibe", "summary": "felt good"}
+{"id": "fin-00000003", "ts": "2026-10-16T10:00:00Z", "thread": "t1", "type": "finding", "summary": "Push works with GH_TOKEN=ghp_FAKEFAKEFAKEFAKEFAKEFAKE0000"}
+not json at all
